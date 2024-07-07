@@ -79,4 +79,4 @@ print_colored "
     \/_____/   \/_____/   \/_/     \/_/ /_/   \/_____/   \/_____/   \/_____/   \/_____/ 
                                                                                      
 print_colored "Installation finished!"
-print_colored "Let`s start our journey with the latest version of QuantumESPRESSO!"
+print_colored "Lets start our journey with the latest version of QuantumESPRESSO!"
