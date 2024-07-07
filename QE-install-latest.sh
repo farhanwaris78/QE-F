@@ -36,7 +36,7 @@ make -j$(nproc) w90
 
 # Add QE binaries to PATH
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-echo 'export PATH="'"$SCRIPT_DIR"'/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="'"$SCRIPT_DIR"'/q-e/bin:$PATH"' >> ~/.bashrc
 
 # Go back to the original directory
 cd ..
