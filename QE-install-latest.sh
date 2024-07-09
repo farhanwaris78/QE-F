@@ -1,4 +1,5 @@
 #!/bin/bash
+                                                            #use cmd "bash QE-install-latest.sh" to install it
 
 set -e  # Exit immediately if a command exits with a non-zero status.
 set -u  # Treat unset variables as an error when substituting.
@@ -23,7 +24,7 @@ sudo apt install -y git wget build-essential g++ gfortran liblapack-dev libfftw3
 
 # Download latest git file of QE
 print_colored "Cloning Quantum ESPRESSO repository..."
-git clone --depth 1 https://github.com/QEF/q-e.git
+git clone --depth 1 https://github.com/QEF/q-e.git            #--depth 1 is used to just download latest snapshot of repository
 cd q-e
 
 # Configure and build QE
@@ -31,17 +32,17 @@ print_colored "Configuring Quantum ESPRESSO..."
 ./configure
 
 print_colored "Building Quantum ESPRESSO..."
-make -j$(nproc) all
-#make -j$(nproc) w90
+make -j$(nproc) all                                           #-j$(nproc) is used to use all cpus to install efficiently the program
+make -j$(nproc) w90                                           #other wise remove the aboe part
 
-# Add QE binaries to PATH
+# Add QE binaries to PATH in .bashrc file
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 echo 'export PATH="'"$SCRIPT_DIR"'/bin:$PATH"' >> ~/.bashrc
 
 # Go back to the original directory
 cd ..
 
-# Install PWgui
+# Install PWgui                                               #if you do not want to install pwgui remove line first bellow to 9th bellow line
 print_colored "Installing PWgui..."
 PWGUI_VERSION="7.0"
 PWGUI_FILE="pwgui-${PWGUI_VERSION}-linux-x86_64.tgz"
@@ -49,7 +50,7 @@ wget "http://www-k3.ijs.si/kokalj/pwgui/download/${PWGUI_FILE}"
 tar zxvf "$PWGUI_FILE"
 rm "$PWGUI_FILE"
 
-# Add PWgui to PATH
+# Add PWgui to PATH in .bash file
 echo 'export PATH="'"$PWD"':$PATH"' >> ~/.bashrc
 
 # Create symlink for pwgui
