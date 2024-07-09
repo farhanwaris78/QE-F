@@ -24,7 +24,7 @@ sudo apt install -y git wget build-essential g++ gfortran liblapack-dev libfftw3
 
 # Download latest git file of QE
 print_colored "Cloning Quantum ESPRESSO repository..."
-git clone --depth 1 https://github.com/QEF/q-e.git            #--depth 1 is used to just download latest snapshot of repository
+git clone --depth 1 https://github.com/QEF/q-e.git            #--depth 1 is used to just download latest snapshot of repository, help to reduce download size
 cd q-e
 
 # Configure and build QE
@@ -42,7 +42,22 @@ echo 'export PATH="'"$SCRIPT_DIR"'/bin:$PATH"' >> ~/.bashrc
 # Go back to the original directory
 cd ..
 
-# Install PWgui                                               #if you do not want to install pwgui remove line first bellow to 9th bellow line
+
+# For Burai 1.3.2 gui pkg for QE
+# IF YOU WANT TO TUSE BURAI GUI FOR QE THEN REMOVE # FROM 1ST BELOW LINE TO 9TH LINE BELLOW OTHE WISE PLACE # IN START OF LINE
+print_colored "Installing Burai 1.3.2  ..."
+sudo apt-get install openjdk-8-jdk -y                       #open java library sized at ~650mb
+sudo apt-get install openjfx -y                             #Open jfx library sized at ~220mb
+wget https://github.com/BURAI-team/burai/releases/download/ver.1.3.2/BURAI1.3.2_Linux.tgz
+tar zxvf BURAI1.3.2_Linux.tgz
+rm BURAI1.3.2_Linux.tgz
+cd BURAI1.3.2
+bash makeLauncher.sh
+cd ..
+
+
+# Install PWgui
+#IF YOU DO NOT WANT TO INSTALL PWGUI THEN PLACE # IN START OF LINE FROM 1ST BELLOW TO 9TH BELLOW LINE
 print_colored "Installing PWgui..."
 PWGUI_VERSION="7.0"
 PWGUI_FILE="pwgui-${PWGUI_VERSION}-linux-x86_64.tgz"
