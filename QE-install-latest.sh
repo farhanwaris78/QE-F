@@ -32,11 +32,11 @@ print_colored "Configuring Quantum ESPRESSO..."
 
 print_colored "Building Quantum ESPRESSO..."
 make -j$(nproc) all
-make -j$(nproc) w90
+#make -j$(nproc) w90
 
 # Add QE binaries to PATH
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-echo 'export PATH="'"$SCRIPT_DIR"'/q-e/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="'"$SCRIPT_DIR"'/bin:$PATH"' >> ~/.bashrc
 
 # Go back to the original directory
 cd ..
@@ -67,9 +67,9 @@ source ~/.bashrc
 # Completion message
 print_colored "
    ______     __  __     ______     _    __     ______   __  __     __    __            
-  /\  __ \   /\ \/\ \   /\  __ \   /\ `-.\ \   /\__  _\ /\ \/\ \   /\ `-./  \           
-  \ \ \/\_\  \ \ \_\ \  \ \  __ \  \ \ \_ ` \  \/_/\ \/ \ \ \_\ \  \ \ \-./\ \          
-   \ \___\_\  \ \_____\  \ \_\ \_\  \ \_\ \\_\    \ \_\  \ \_____\  \ \_\ \ \_\         
+  /\  __ \   /\ \/\ \   /\  __ \   /\  -.\ \   /\__  _\ /\ \/\ \   /\  -./  \           
+  \ \ \/\_\  \ \ \_\ \  \ \  __ \  \ \ \ _  \  \/_/\ \/ \ \ \_\ \  \ \ \-./\ \          
+   \ \___\_\  \ \_____\  \ \_\ \_\  \ \_\  \_\    \ \_\  \ \_____\  \ \_\ \ \_\         
     \/___/_/   \/_____/   \/_/\/_/   \/_/ \/_/     \/_/   \/_____/   \/_/  \/_/         
                                                                                         
    ______     ______     ______   ______     ______     ______     ______     ______    
@@ -77,6 +77,6 @@ print_colored "
   \ \  __\   \ \___  \  \ \  _-/ \ \  __<   \ \  __\   \ \___  \  \ \___  \  \ \ \/\ \  
    \ \_____\  \/\_____\  \ \_\    \ \_\ \_\  \ \_____\  \/\_____\  \/\_____\  \ \_____\ 
     \/_____/   \/_____/   \/_/     \/_/ /_/   \/_____/   \/_____/   \/_____/   \/_____/ 
-                                                                                     
+                                                                                     "
 print_colored "Installation finished!"
-print_colored "Lets start our journey with the latest version of QuantumESPRESSO!"
+print_colored "Let's start our journey with the latest version of QuantumESPRESSO!"
