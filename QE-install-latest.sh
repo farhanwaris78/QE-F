@@ -96,3 +96,4 @@ print_colored "
                                                                                      "
 print_colored "Installation finished!"
 print_colored "Let's start our journey with the latest version of QuantumESPRESSO!"
+#IF PW.X DOES NOT WORK,THEN RESTART THE SYSTEM
