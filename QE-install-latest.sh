@@ -73,7 +73,8 @@ sudo ln -sf "$PWD/pwgui" /usr/local/bin/pwgui
 
 # Install additional tools
 print_colored "Installing additional tools..."
-sudo apt install -y xcrysden gnuplot python3-dev python3-pip
+sudo apt install -y xcrysden bc
+sudo apt install gnuplot python3-dev python3-pip
 pip3 install --upgrade pip
 pip3 install numpy scipy sympy matplotlib jupyterlab
 
