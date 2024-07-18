@@ -77,6 +77,7 @@ sudo apt install -y xcrysden bc
 sudo apt install gnuplot python3-dev python3-pip
 pip3 install --upgrade pip
 pip3 install numpy scipy sympy matplotlib jupyterlab
+pip3 install cif2cell
 
 # Source .bashrc to apply changes immediately
 source ~/.bashrc
