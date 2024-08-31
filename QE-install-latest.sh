@@ -20,7 +20,7 @@ sudo apt update && sudo apt upgrade -y
 
 # Install important development tools and libraries
 print_colored "Installing development tools and libraries..."
-sudo apt install -y git wget build-essential g++ gfortran liblapack-dev libfftw3-dev libopenmpi-dev
+sudo apt install -y git wget build-essential g++ gfortran liblapack-dev libfftw3-dev libopenmpi-dev libblas-dev
 
 # Download latest git file of QE
 print_colored "Cloning Quantum ESPRESSO repository..."
@@ -48,12 +48,14 @@ cd ..
 print_colored "Installing Burai 1.3.2  ..."
 sudo apt-get install openjdk-8-jdk -y                       # open java library sized at ~650mb
 sudo apt-get install openjfx -y                             # Open jfx library sized at ~220mb
+wget https://raw.githubusercontent.com/mampaiva/fix-burai/master/fix-burai.sh 						# to fix burai not opening issue run this cmd then use "bash ./fix-burai.sh"
 wget https://github.com/BURAI-team/burai/releases/download/ver.1.3.2/BURAI1.3.2_Linux.tgz
 tar zxvf BURAI1.3.2_Linux.tgz
 rm BURAI1.3.2_Linux.tgz
 cd BURAI1.3.2
 bash makeLauncher.sh
 cd ..
+# if burai does not show crystal structure type "java -Dprism.forceGPU=true -jar ./bin/burai.jar" in burai.sh located in BURAI1.3.2/bin
 
 
 # Install PWgui
@@ -78,6 +80,16 @@ sudo apt install gnuplot python3-dev python3-pip
 pip3 install --upgrade pip
 pip3 install numpy scipy sympy matplotlib jupyterlab
 pip3 install cif2cell
+
+# For thermoelectric properties BoltzTraP2 is needed for quantum-ESPRESSO
+print_colored "Installing BoltzTraP2..."
+pip3 install cython spglib netCDF4 ase cmake pyfftw vtk
+git clone --depth 1 https://gitlab.com/sousaw/BoltzTraP2.git
+cd BoltzTraP2
+python3 setup.py install
+cd ..
+# to check if BoltzTrap is install use cmd "btp2 -h"
+
 
 # Source .bashrc to apply changes immediately
 source ~/.bashrc
