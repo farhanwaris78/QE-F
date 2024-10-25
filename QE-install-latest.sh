@@ -84,10 +84,11 @@ pip3 install cif2cell
 # For thermoelectric properties BoltzTraP2 is needed for quantum-ESPRESSO
 print_colored "Installing BoltzTraP2..."
 pip3 install cython spglib netCDF4 ase cmake pyfftw vtk
-git clone --depth 1 https://gitlab.com/sousaw/BoltzTraP2.git
-cd BoltzTraP2
-python3 setup.py install
-cd ..
+pip3 install BoltzTraP2
+# git clone --depth 1 https://gitlab.com/sousaw/BoltzTraP2.git
+# cd BoltzTraP2
+# python3 setup.py install
+# cd ..
 # to check if BoltzTrap is install use cmd "btp2 -h"
 
 
